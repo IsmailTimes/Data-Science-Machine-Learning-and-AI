@@ -63,11 +63,39 @@ passenger12100 = titanicDS.iloc[[0, 1, 99]]
 print(passenger12100)
 
 
-
-
-
-
-
 #To get first two rows's 1, 2 & 8 columns
 passenger12x128 = titanicDS.iloc[[0 ,1], [0, 1, 7]]
 print(passenger12x128)
+
+
+
+######## Using loc() method, where we need to use the exact field name
+
+
+#for 1, 2 rows and Gender & Age column
+passenger12xGxage = titanicDS.loc[[0,1], ['Gender', 'Age']]
+print(passenger12xGxage)
+
+#for : meaning all rows and Gender & Age column
+passengerAllGenderAge = titanicDS.loc[:, ['Gender', 'Age']]
+print(passengerAllGenderAge)
+
+
+#for : meaning all rows and Gender to Ticket Fare column
+passengerAllGendertoTicketFare = titanicDS.loc[:, 'Gender' : 'Ticket_Fare']
+print(passengerAllGendertoTicketFare)
+
+#All rows and Gender to Ticket Fare column, Where Gender ==1 which indicates female 
+femalepassengerAllGendertoTicketFare = titanicDS.loc[titanicDS.Gender == 1, 'Gender' : 'Ticket_Fare']
+print(femalepassengerAllGendertoTicketFare)
+
+#All rows and Gender to Ticket Fare column, Where Age more than or equal 40
+olderpassengerAllGendertoTicketFare = titanicDS.loc[titanicDS.Age >= 40, 'Gender' : 'Ticket_Fare']
+print(olderpassengerAllGendertoTicketFare)
+
+
+
+
+########## Using ix() method, 
+#passengerGenderToParents= titanicDS.ix[0:9, 'Gender':'Parents/Children Aboard']
+#print(passengerGenderToParents)
