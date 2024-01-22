@@ -6,6 +6,7 @@ Created on Sun Jan 21 20:08:11 2024
 """
 
 import pandas as pd
+import numpy as np
 filelocation = "Dummy_Salary_Data.csv"
 #filelocation = "Dummy_Salary_Data.csv"
 
@@ -25,3 +26,44 @@ salVector = datasetDS.iloc[:, 1].values
 print('Experience Vector= ', expVector)
 print('Salary Vector= ', salVector)
 
+expVector2 = dataMatrix[:, 0]
+salVector2 = dataMatrix[:, 1]
+print(expVector2)
+print(salVector2)
+
+print('Size of Experience Vector= ', expVector.size)
+print('Size of Experience Vector2= ', expVector2.size)
+
+print('Size of Experience Vector = ', expVector.size)
+print('Size of Experience Vector2 = ', expVector2.size)
+
+
+for i in range(expVector.size):
+    print("expVector[%d] = %.f " % (i, expVector[i]))
+    
+for i in range(expVector2.size):    
+    if (expVector[i])<2:
+        print("expVector2[%d] = %.f " % (i, expVector2[i]))
+        
+        
+for i in range(expVector2.size):
+    if(expVector2[i])>8:
+        print("expVector2[%d} = %.f " % (i, expVector2[i]))
+        
+    
+titanicDS = pd.read_csv("Dummy_Titanic_Data.csv")
+print(titanicDS)
+
+
+titanicDM = titanicDS.iloc[:, 0:9].values
+print(titanicDM)
+
+
+survival_status = titanicDS.iloc[:, 0].values
+print('Survival Status: ', survival_status)
+
+ticket_class = titanicDS.iloc[:, 1].values
+print("Ticket Class: " ,ticket_class)
+
+age = titanicDS.iloc[:, 4]
+print('age= ', age)
